@@ -47,7 +47,7 @@ const cardList = [
 
 ]
 
-cardList.sort(function(a, b) {
+cardList.sort(function (a, b) {
   var dateASplit = a.date.split("/")
   var dateBSplit = b.date.split("/")
   var dateA = new Date(dateASplit[2], dateASplit[1], dateASplit[0]), dateB = new Date(dateBSplit[2], dateBSplit[1], dateBSplit[0])
@@ -63,31 +63,41 @@ function FilterOp(props) {
   )
 }
 
-const filterOps = [{name: 'Pre-penultimate'}, {name: 'Penultimate'}, {name: 'Graduate'}, {name: 'Unspecified/Other'}]
+const filterOps = [
+  { name: 'Pre-penultimate', active: false }, 
+  { name: 'Penultimate', active: true }, 
+  { name: 'Graduate', active: true }, 
+  { name: 'Unspecified/Other', active: true }
+]
 
 const activeFilters = ['Unspecified/Other', 'Pre-penultimate']
 
 
-function App() {
-  
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { filters: filterOps.filter(op => op.active).map(op => op.name) }
+  }
 
 
-  return (
-    <div className="App">
+  render() {
+    return (
+      <div className="App">
 
-      <div className="Filter-container">
-        <h1>Filter by:</h1>
-        <ul className="filter-ops">
+        <div className="Filter-container">
+          <h1>Filter by:</h1>
+          <ul className="filter-ops">
             {filterOps.map(op => FilterOp(op))}
-        </ul>
-      </div>
+          </ul>
+        </div>
 
-      <div className="Card-container">
-        {cardList.filter(unfilteredCard => activeFilters.includes(unfilteredCard.level)).map(card => Card(card))}
-      </div>
+        <div className="Card-container">
+          {cardList.filter(unfilteredCard => this.state.filters.includes(unfilteredCard.level)).map(card => Card(card))}
+        </div>
 
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
