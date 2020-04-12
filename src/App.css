@@ -1,4 +1,45 @@
 .App {
-  text-align: left;
+  /* text-align: left; */
   margin: 2rem 2rem 0 2rem;
+}
+
+.filterUnselected {
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: white;
+  border-color: #9900ff;
+  border-width: 2px 2px;
+  border-style: solid;
+  color: #9900ff;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-weight: 600;
+
+}
+
+.filterSelected {
+  background-color: #9900ff;
+  border-color: #9900ff;
+  color: white;
+  border-width: 2px 2px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-weight: 600;
+}
+
+.Filter-container {
+  text-align: center;
+  /* margin: 0 auto; */
+  
+}
+
+h1 {
+  text-align: center;
+  color: grey;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding-bottom: 0;
 }

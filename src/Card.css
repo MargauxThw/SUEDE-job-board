@@ -44,6 +44,10 @@
     margin-bottom: 0.2rem;
 }
 
+.description {
+    font-size: 14px;
+}
+
 .link {
     text-decoration: none;
 }
