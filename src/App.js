@@ -54,13 +54,33 @@ cardList.sort(function(a, b) {
   return dateA - dateB
 });
 
-const filters = ['Unspecified/Other', 'Pre-penultimate']
+
+function FilterOp(props) {
+  return (
+    <li className='filterOp'>
+      {props.name}
+    </li>
+  )
+}
+
+const filterOps = [{name: 'Pre-penultimate'}, {name: 'Penultimate'}, {name: 'Graduate'}, {name: 'Unspecified/Other'}]
+
+// const activeFilters = ['Unspecified/Other', 'Pre-penultimate']
 
 
 function App() {
+  
 
+  
   return (
     <div className="App">
+
+      <div className="Filter-container">
+        <h1>Filter by:</h1>
+        <ul className="filter-ops">
+            {filterOps.map(op => FilterOp(op))}
+        </ul>
+      </div>
 
       <div className="Card-container">
         {cardList.filter(unfilteredCard => filters.includes(unfilteredCard.level)).map(card => Card(card))}
