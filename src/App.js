@@ -65,13 +65,13 @@ function FilterOp(props) {
 
 const filterOps = [{name: 'Pre-penultimate'}, {name: 'Penultimate'}, {name: 'Graduate'}, {name: 'Unspecified/Other'}]
 
-// const activeFilters = ['Unspecified/Other', 'Pre-penultimate']
+const activeFilters = ['Unspecified/Other', 'Pre-penultimate']
 
 
 function App() {
   
 
-  
+
   return (
     <div className="App">
 
@@ -83,7 +83,7 @@ function App() {
       </div>
 
       <div className="Card-container">
-        {cardList.filter(unfilteredCard => filters.includes(unfilteredCard.level)).map(card => Card(card))}
+        {cardList.filter(unfilteredCard => activeFilters.includes(unfilteredCard.level)).map(card => Card(card))}
       </div>
 
     </div>
