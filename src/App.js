@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import './Card.css';
 import Card from './Card.js';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const cardList = [
   {
@@ -55,6 +54,8 @@ cardList.sort(function(a, b) {
   return dateA - dateB
 });
 
+const filters = ['Unspecified/Other', 'Pre-penultimate']
+
 
 function App() {
 
@@ -62,7 +63,7 @@ function App() {
     <div className="App">
 
       <div className="Card-container">
-        {cardList.map(card => Card(card))}
+        {cardList.filter(unfilteredCard => filters.includes(unfilteredCard.level)).map(card => Card(card))}
       </div>
 
     </div>
