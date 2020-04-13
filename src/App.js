@@ -20,7 +20,7 @@ function FilterOp(props) {
 
     return (
       <button className={props.active ? 'filterSelected' : 'filterUnselected'} onClick={handleEvent}>
-        {props.name}
+        {props.name} {props.active ? "x" : ""}
       </button>
     )
 }
