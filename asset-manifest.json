@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/SUEDE-job-board/static/css/main.3ad1a8ac.chunk.css",
+    "main.js": "/SUEDE-job-board/static/js/main.4d571426.chunk.js",
+    "main.js.map": "/SUEDE-job-board/static/js/main.4d571426.chunk.js.map",
+    "runtime-main.js": "/SUEDE-job-board/static/js/runtime-main.581dac7b.js",
+    "runtime-main.js.map": "/SUEDE-job-board/static/js/runtime-main.581dac7b.js.map",
+    "static/js/2.c493cfef.chunk.js": "/SUEDE-job-board/static/js/2.c493cfef.chunk.js",
+    "static/js/2.c493cfef.chunk.js.map": "/SUEDE-job-board/static/js/2.c493cfef.chunk.js.map",
+    "index.html": "/SUEDE-job-board/index.html",
+    "precache-manifest.981b7acbf067988f863f96d6dc65d0b4.js": "/SUEDE-job-board/precache-manifest.981b7acbf067988f863f96d6dc65d0b4.js",
+    "service-worker.js": "/SUEDE-job-board/service-worker.js",
+    "static/css/main.3ad1a8ac.chunk.css.map": "/SUEDE-job-board/static/css/main.3ad1a8ac.chunk.css.map",
+    "static/js/2.c493cfef.chunk.js.LICENSE.txt": "/SUEDE-job-board/static/js/2.c493cfef.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.581dac7b.js",
+    "static/js/2.c493cfef.chunk.js",
+    "static/css/main.3ad1a8ac.chunk.css",
+    "static/js/main.4d571426.chunk.js"
+  ]
+}
