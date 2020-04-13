@@ -1,65 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import './Card.css';
 import Card from './Card.js';
-
-const cardList = [
-  {
-    link: "https://www.facebook.com/careers/",
-    logo: "https://scontent.fsyd3-1.fna.fbcdn.net/v/t39.2365-6/78040202_579584169534875_7061365506699165696_n.gif?_nc_cat=100&_nc_sid=ad8a9d&_nc_ohc=VtmuerseIXgAX-xMjLq&_nc_ht=scontent.fsyd3-1.fna&oh=7ec820384439526872a8ef266e2433ff&oe=5EB76598",
-    title: "Software Engineer, Intern/Co-op",
-    date: "25/04/2020",
-    level: "Graduate",
-    description: "Want to build new features and products that touch more than a billion people around the world? Want to build new features that improve existing products like Photos, Groups, NewsFeed, Search, and Messaging? Want to solve unique, large-scale, highly complex technical problems? Our development cycle is extremely fast, and we've built tools to keep it that way. It's common to write code and have it running live on the site hours later. If you work for us you will make an impact, immediately. Facebook is seeking interns/co-ops to join our engineering team. You can help build the next generation of systems behind Facebook's products, create web applications that reach millions of people, build high volume servers and be a part of a team that’s working to help connect people around the globe. This intern/co-op has a minimum twelve (12) week duration."
-  },
-  {
-    link: "https://www.facebook.com/careers/",
-    logo: "https://www.ey.com/ecimages/EY.gif",
-    title: "Software Engineer, Intern",
-    date: "13/12/2020",
-    level: "Graduate",
-    description: "Want to build new features and products that touch more than a billion people around the world? Want to build new features that improve existing products like Photos, Groups, NewsFeed, Search, and Messaging? Want to solve unique, large-scale, highly complex technical problems? Our development cycle is extremely fast, and we've built tools to keep it that way. It's common to write code and have it running live on the site hours later. If you work for us you will make an impact, immediately. Facebook is seeking interns/co-ops to join our engineering team. You can help build the next generation of systems behind Facebook's products, create web applications that reach millions of people, build high volume servers and be a part of a team that’s working to help connect people around the globe. This intern/co-op has a minimum twelve (12) week duration."
-  },
-  {
-    link: "https://www.facebook.com/careers/",
-    logo: "https://scontent.fsyd3-1.fna.fbcdn.net/v/t39.2365-6/78040202_579584169534875_7061365506699165696_n.gif?_nc_cat=100&_nc_sid=ad8a9d&_nc_ohc=VtmuerseIXgAX-xMjLq&_nc_ht=scontent.fsyd3-1.fna&oh=7ec820384439526872a8ef266e2433ff&oe=5EB76598",
-    title: "Software Engineer, Intern",
-    date: "13/04/2020",
-    level: "Graduate",
-    description: "Want to build new features and products that touch more than a billion people around the world? Want to build new features that improve existing products like Photos, Groups, NewsFeed, Search, and Messaging? Want to solve unique, large-scale, highly complex technical problems? Our development cycle is extremely fast, and we've built tools to keep it that way. It's common to write code and have it running live on the site hours later. If you work for us you will make an impact, immediately. Facebook is seeking interns/co-ops to join our engineering team. You can help build the next generation of systems behind Facebook's products, create web applications that reach millions of people, build high volume servers and be a part of a team that’s working to help connect people around the globe. This intern/co-op has a minimum twelve (12) week duration."
-  },
-  {
-    link: "https://www.facebook.com/careers/",
-    logo: "https://scontent.fsyd3-1.fna.fbcdn.net/v/t39.2365-6/78040202_579584169534875_7061365506699165696_n.gif?_nc_cat=100&_nc_sid=ad8a9d&_nc_ohc=VtmuerseIXgAX-xMjLq&_nc_ht=scontent.fsyd3-1.fna&oh=7ec820384439526872a8ef266e2433ff&oe=5EB76598",
-    title: "Software Engineer, Intern",
-    date: '13/06/2020',
-    level: "Pre-penultimate",
-    description: "Want to solve unique, large-scale, highly complex technical problems? Our development cycle is extremely fast, and we've built tools to keep it that way. It's common to write code and have it running live on the site hours later. If you work for us you will make an impact, immediately. Facebook is seeking interns/co-ops to join our engineering team. You can help build the next generation of systems behind Facebook's products, create web applications that reach millions of people, build high volume servers and be a part of a team that’s working to help connect people around the globe. This intern/co-op has a minimum twelve (12) week duration."
-  },
-  {
-    link: "https://www.facebook.com/careers/",
-    logo: "https://scontent.fsyd3-1.fna.fbcdn.net/v/t39.2365-6/78040202_579584169534875_7061365506699165696_n.gif?_nc_cat=100&_nc_sid=ad8a9d&_nc_ohc=VtmuerseIXgAX-xMjLq&_nc_ht=scontent.fsyd3-1.fna&oh=7ec820384439526872a8ef266e2433ff&oe=5EB76598",
-    title: "Software Engineer, Intern",
-    date: "15/04/2021",
-    level: "Unspecified/Other",
-    description: "Want to build new features and products that touch more than a billion people around the world? Want to build new features that improve existing products like Photos, Groups, NewsFeed, Search, and Messaging? Want to solve unique, large-scale, highly complex technical problems? Our development cycle is extremely fast, and we've built tools to keep it that way. It's common to write code and have it running live on the site hours later. If you work for us you will make an impact, immediately. Facebook is seeking interns/co-ops to join our engineering team. You can help build the next generation of systems behind Facebook's products, create web applications that reach millions of people, build high volume servers and be a part of a team that’s working to help connect people around the globe. This intern/co-op has a minimum twelve (12) week duration."
-  },
-
-]
-
-cardList.sort(function (a, b) {
-  var dateASplit = a.date.split("/")
-  var dateBSplit = b.date.split("/")
-  var dateA = new Date(dateASplit[2], dateASplit[1], dateASplit[0]), dateB = new Date(dateBSplit[2], dateBSplit[1], dateBSplit[0])
-  return dateA - dateB
-});
-
+import Tabletop from 'tabletop'
 
 const filterOps = [
   { key: 1, name: 'Pre-penultimate', active: true }, 
-  { key: 2, name: 'Penultimate', active: false }, 
+  { key: 2, name: 'Penultimate', active: true }, 
   { key: 3, name: 'Graduate', active: true }, 
-  { key: 4, name: 'Unspecified/Other', active: false }
+  { key: 4, name: 'Unspecified/Other', active: true }
 ]
 
 function FilterOp(props) {
@@ -79,8 +28,30 @@ function FilterOp(props) {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { filters: filterOps.filter(op => op.active).map(op => op.name) }
+    this.state = { 
+      filters: filterOps.filter(op => op.active).map(op => op.name), 
+      data: []
+    }
     this.updateState = this.updateState.bind(this);
+  }
+
+  componentDidMount() {
+    Tabletop.init({
+      key: '1tvPlx3bY2eitUijRGHsCwnSrz0WYVLAfITzF_dNX2wA',
+      callback: googleData => {
+        googleData.sort(function (a, b) {
+          var dateASplit = a.date.split("/")
+          var dateBSplit = b.date.split("/")
+          var dateA = new Date(dateASplit[2], dateASplit[1], dateASplit[0]), dateB = new Date(dateBSplit[2], dateBSplit[1], dateBSplit[0])
+          return dateA - dateB
+        });
+
+        this.setState({
+          data: googleData
+        })
+      },
+      simpleSheet: true
+    })
   }
 
   updateState(id) {
@@ -100,12 +71,15 @@ class App extends React.Component {
           <FilterOp id={3} name={filterOps[2].name} active={filterOps[2].active} update={this.updateState}/>
           <FilterOp id={4} name={filterOps[3].name} active={filterOps[3].active} update={this.updateState}/>
 
+
+    <p className="Num-results">Showing {this.state.data.filter(card => this.state.filters.includes(card.level)).length} listing{this.state.data.filter(card => this.state.filters.includes(card.level)).length == 1 ? "" : "s" }
+     </p>
         </div>
 
-        <p className="Num-results">Showing {cardList.filter(card => this.state.filters.includes(card.level)).length} listings</p>
+        
 
         <div className="Card-container">
-          {cardList.filter(unfilteredCard => this.state.filters.includes(unfilteredCard.level)).map(card => Card(card))}
+          {this.state.data.filter(unfilteredCard => this.state.filters.includes(unfilteredCard.level)).map(card => Card(card))}
         </div>
 
       </div>

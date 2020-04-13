@@ -30,10 +30,20 @@
   font-weight: 600;
 }
 
+button:focus {
+  outline: none;
+}
+
 .Filter-container {
   text-align: center;
   /* margin: 0 auto; */
   
+}
+
+.Num-results {
+  color: #9900ff;
+
+  font-weight: 600;
 }
 
 h1 {
